@@ -128,8 +128,6 @@ keybinds:
           key: [Char: 'p']
         - action: [NewPane: , SwitchToMode: Normal,]
           key: [Char: 'n',]
-        - action: [NewPane: Down, SwitchToMode: Normal,]
-          key: [Char: 'd',]
         - action: [NewPane: Right, SwitchToMode: Normal,]
           key: [Char: 'r',]
         - action: [CloseFocus, SwitchToMode: Normal,]

@@ -870,7 +870,7 @@ pub(crate) fn plugin_thread_main(
                 // TODO: notify plugins that this happened so that they can eg. rebind temporary keys that
                 // were lost
                 wasm_bridge
-                    .reconfigure(client_id, keybinds, default_mode, default_shell)
+                    .reconfigure(client_id, None, default_mode, default_shell)
                     .non_fatal();
             },
             PluginInstruction::FailedToWriteConfigToDisk { file_path } => {

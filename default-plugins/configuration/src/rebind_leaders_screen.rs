@@ -1029,7 +1029,7 @@ impl RebindLeadersScreen {
         self.bind_actions(
             keys_to_unbind,
             keys_to_bind,
-            &[actions::Action::Resize(Resize::Increase, None)],
+            &[actions::Action::NewPane(Some(Direction::Down), None, false), actions::Action::NewPane(Some(Direction::Left), None, false), actions::Action::NewPane(Some(Direction::Up), None, false)],
             KeyWithModifier::new_with_modifiers(
                 BareKey::Char('+'),
                 self.secondary_modifier.clone(),

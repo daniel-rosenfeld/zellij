@@ -983,23 +983,6 @@ Config {
             ],
             KeyWithModifier {
                 bare_key: Char(
-                    'd',
-                ),
-                key_modifiers: {},
-            }: [
-                NewPane(
-                    Some(
-                        Down,
-                    ),
-                    None,
-                    false,
-                ),
-                SwitchToMode(
-                    Normal,
-                ),
-            ],
-            KeyWithModifier {
-                bare_key: Char(
                     'e',
                 ),
                 key_modifiers: {},

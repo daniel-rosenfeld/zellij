@@ -229,8 +229,6 @@ keybinds:
           key: [Char: 'p']
         - action: [NewPane: ,]
           key: [Char: 'n', Alt: 'n',]
-        - action: [NewPane: Down,]
-          key: [Char: 'd',]
         - action: [NewPane: Right,]
           key: [Char: 'r',]
         - action: [CloseFocus,]

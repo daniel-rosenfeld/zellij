@@ -617,19 +617,6 @@ Config {
                 ),
             ],
             Char(
-                'd',
-            ): [
-                NewPane(
-                    Some(
-                        Down,
-                    ),
-                    None,
-                ),
-                SwitchToMode(
-                    Normal,
-                ),
-            ],
-            Char(
                 'e',
             ): [
                 TogglePaneEmbedOrFloating,

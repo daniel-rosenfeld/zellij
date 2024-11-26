@@ -1133,7 +1133,6 @@ mod tests {
                     (KeyWithModifier::new(BareKey::Char('a')).with_ctrl_modifier(), vec![Action::SwitchToMode(InputMode::Locked)]),
                     (KeyWithModifier::new(BareKey::Char('b')).with_ctrl_modifier(), vec![Action::SwitchToMode(InputMode::Pane)]),
                     (KeyWithModifier::new(BareKey::Char('c')).with_ctrl_modifier(), vec![Action::SwitchToMode(InputMode::Tab)]),
-                    (KeyWithModifier::new(BareKey::Char('d')).with_ctrl_modifier(), vec![Action::SwitchToMode(InputMode::Resize)]),
                     (KeyWithModifier::new(BareKey::Char('e')).with_ctrl_modifier(), vec![Action::SwitchToMode(InputMode::Move)]),
                 ]),
             ],

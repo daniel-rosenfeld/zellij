@@ -259,6 +259,23 @@ pub(crate) fn route_action(
                 .send_to_screen(ScreenInstruction::TogglePaneFrames)
                 .with_context(err_context)?;
         },
+        Action::Fourify => {
+            let shell = default_shell.clone();
+            let pty_instr = PtyInstruction::SpawnTerminalHorizontally(shell, None, client_id);
+            senders.send_to_pty(pty_instr).with_context(err_context)?;
+            let shell = default_shell.clone();
+            let pty_instr = PtyInstruction::SpawnTerminalVertically(shell, None, client_id);
+            senders.send_to_pty(pty_instr).with_context(err_context)?;
+            let ten_millis = Duration::from_millis(100);
+            thread::sleep(ten_millis);
+            let screen_instr = ScreenInstruction::MoveFocusUp(client_id);
+            senders
+                .send_to_screen(screen_instr)
+                .with_context(err_context)?;
+            let shell = default_shell.clone();
+            let pty_instr = PtyInstruction::SpawnTerminalVertically(shell, None, client_id);
+            senders.send_to_pty(pty_instr).with_context(err_context)?;
+        },
         Action::NewPane(direction, name, start_suppressed) => {
             let shell = default_shell.clone();
             let pty_instr = match direction {

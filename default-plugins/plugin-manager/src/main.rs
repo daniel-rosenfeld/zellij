@@ -457,23 +457,6 @@ impl NewPluginScreen {
                     should_render = true;
                 }
             },
-            BareKey::Char('d') if key.has_modifiers(&[KeyModifier::Ctrl]) => {
-                let mut args = BTreeMap::new();
-                let request_id = Uuid::new_v4();
-                self.request_ids.push(request_id.to_string());
-                let mut config = BTreeMap::new();
-                config.insert("request_id".to_owned(), request_id.to_string());
-                args.insert("request_id".to_owned(), request_id.to_string());
-                pipe_message_to_plugin(
-                    MessageToPlugin::new("filepicker")
-                        .with_plugin_url("filepicker")
-                        .with_plugin_config(config)
-                        .new_plugin_instance_should_have_pane_title(
-                            "Select a .wasm file to load as a plugin...",
-                        )
-                        .with_args(args),
-                );
-            },
             BareKey::Char('l') if key.has_modifiers(&[KeyModifier::Ctrl]) => {
                 self.load_in_background = !self.load_in_background;
                 should_render = true;

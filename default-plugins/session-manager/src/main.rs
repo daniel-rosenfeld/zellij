@@ -358,15 +358,6 @@ impl State {
                     }
                     should_render = true;
                 },
-                BareKey::Char('d') if key.has_modifiers(&[KeyModifier::Ctrl]) => {
-                    let all_other_sessions = self.sessions.all_other_sessions();
-                    if all_other_sessions.is_empty() {
-                        self.show_error("No other sessions to kill. Quit to kill the current one.");
-                    } else {
-                        self.show_kill_all_sessions_warning = true;
-                    }
-                    should_render = true;
-                },
                 BareKey::Char('x') if key.has_modifiers(&[KeyModifier::Ctrl]) => {
                     disconnect_other_clients()
                 },
@@ -436,11 +427,6 @@ impl State {
             },
             BareKey::Delete if key.has_no_modifiers() => {
                 self.resurrectable_sessions.delete_selected_session();
-                should_render = true;
-            },
-            BareKey::Char('d') if key.has_modifiers(&[KeyModifier::Ctrl]) => {
-                self.resurrectable_sessions
-                    .show_delete_all_sessions_warning();
                 should_render = true;
             },
             BareKey::Esc if key.has_no_modifiers() => {

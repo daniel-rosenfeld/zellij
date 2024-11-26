@@ -155,6 +155,8 @@ pub enum Action {
     TogglePaneFrames,
     /// Toggle between sending text commands to all panes on the current tab and normal mode.
     ToggleActiveSyncTab,
+    // Fourifys the pane
+    Fourify,
     /// Open a new pane in the specified direction (relative to focus).
     /// If no direction is specified, will try to use the biggest available space.
     NewPane(Option<Direction>, Option<String>, bool), // String is an optional pane name

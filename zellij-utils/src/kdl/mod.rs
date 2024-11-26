@@ -74,6 +74,7 @@ macro_rules! parse_kdl_action_arguments {
                 "PreviousSwapLayout" => Ok(Action::PreviousSwapLayout),
                 "NextSwapLayout" => Ok(Action::NextSwapLayout),
                 "Clear" => Ok(Action::ClearScreen),
+                "Fourify" => Ok(Action::Fourify),
                 _ => Err(ConfigError::new_kdl_error(
                     format!("Unsupported action: {:?}", $action_name),
                     $action_node.span().offset(),
@@ -542,6 +543,7 @@ impl Action {
                     Ok(Action::NewPane(Some(direction), None, false))
                 }
             },
+            "Fourify" => Ok(Action::Fourify),
             "SearchToggleOption" => {
                 let toggle_option = SearchOption::from_str(string.as_str()).map_err(|_| {
                     ConfigError::new_kdl_error(
@@ -1377,6 +1379,11 @@ impl TryFrom<(&KdlNode, &Options)> for Action {
                 kdl_action
             ),
             "NewPane" => parse_kdl_action_char_or_string_arguments!(
+                action_name,
+                action_arguments,
+                kdl_action
+            ),
+            "Fourify" => parse_kdl_action_char_or_string_arguments!(
                 action_name,
                 action_arguments,
                 kdl_action

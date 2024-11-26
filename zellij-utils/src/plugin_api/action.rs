@@ -885,6 +885,10 @@ impl TryFrom<Action> for ProtobufAction {
                 name: ProtobufActionName::ToggleActiveSyncTab as i32,
                 optional_payload: None,
             }),
+            Action::Fourify => Ok(ProtobufAction {
+                name: ProtobufActionName::Fourify as i32,
+                optional_payload: None,
+            }),
             Action::NewPane(direction, new_pane_name, _start_suppressed) => {
                 let direction = direction.and_then(|direction| {
                     let protobuf_direction: ProtobufResizeDirection = direction.try_into().ok()?;
